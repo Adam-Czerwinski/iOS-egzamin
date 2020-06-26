@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Egzamin iOS Adam Czerwiński
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,19 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Egzamin iOS Adam Czerwiński</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-input type="text" placeholder="Imię" clearInput #imie></ion-input>
+    <ion-input
+      type="text"
+      placeholder="Nazwisko"
+      clearInput
+      #nazwisko
+    ></ion-input>
+    <ion-button [disabled]="!imie.value || !nazwisko.value" (click)="onSend(imie.value, nazwisko.value)">Wyślij</ion-button>
+    <ng-container *ngIf="kodWynikowy">{{kodWynikowy}}</ng-container>
   </div>
 </ion-content>
